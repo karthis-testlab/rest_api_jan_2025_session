@@ -12,7 +12,7 @@ public class CreateARecordWithRequestBodyAsString {
                   "description": "Adding new record using POST"
                 }				
 				""";
-		
+		// RequestSpecification 
 		given()
 		 .baseUri("https://dev262949.service-now.com")
 		 .basePath("/api/now/table")
@@ -21,8 +21,9 @@ public class CreateARecordWithRequestBodyAsString {
 		 .header("Content-Type", "application/json")
 		 .log().all()
 	   .when()
-	     .body(request_payload)
+	     .body(request_payload)	     
 	     .post("/{tableName}", "incident")
+	   // Response
 	   .then()
 	     .log().all()
 	     .assertThat()
